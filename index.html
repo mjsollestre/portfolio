@@ -34,6 +34,14 @@
   <span>Email</span>
   </a>
 
+      <!-- Theme Toggle Buttons -->
+      <button class="theme-toggle" id="light-theme" title="Light Theme">
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="theme-toggle" id="dark-theme" title="Dark Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
     </div>
   </nav>
 
@@ -178,7 +186,7 @@ var typed = new Typed(".auto-type",{
          <div class="cell">
            <endl>
          <b><span>Programming Languages </span></b>
-         <p>C++, JavaScript</p>
+         <p>C++, JavaScript, PHP</p>
         </div>
 
       </div>
@@ -211,45 +219,49 @@ var typed = new Typed(".auto-type",{
     <section id="projects" class="projects-section">
       <h2>Projects</h2>
 
-      <h3>Networking Projects</h3>
+  
       <div class="group">
         <div class="person-details">
           <p>Designing a Hybrid Network and Implementing Gateway Load Balancing Protocol (GLBP) for PhilHealth Local Health Insurance Office Lucena</p>
-          <p> Final Capstone Project</p>
+          <div class="project-buttons">
+            <a href="https://github.com/mjsollestre/Hybrid-Network-GLBP" class="project-btn secondary">
+              <i class="fa-solid fa-code"></i>
+              GitHub
+            </a>
+          </div>
         </div>
 
            <div class="person-details">
-          <p>Designing a Partial Mesh network using Inter-Vlan routing and Spanning-Tree Protocol for PhilHealth Local Health Insurance Office Lucena’s ITMS & HRU Department</p>
-          <p> Capstone Project for Computer Networking Elective</p>
+          <p>Weather App</p>
+          <div class="project-buttons">
+            <a href="https://mjsollestre.github.io/Weather-App/" class="project-btn">
+            <i class="fa-solid fa-globe"></i>
+             Visit Website
+            </a>
+
+            <a href="https://github.com/mjsollestre/Weather-App" class="project-btn secondary">
+              <i class="fa-solid fa-code"></i>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+          <div class="person-details">
+          <p>Pomodoro Timer App </p>
+          <div class="project-buttons">
+            <a href="https://mjsollestre.github.io/Pomodoro-Timer-App/" class="project-btn">
+            <i class="fa-solid fa-globe"></i>
+              Visit Website
+            </a>
+            <a href="#" class="project-btn secondary">
+              <i class="fa-solid fa-code"></i>
+              GitHub
+            </a>
+          </div>
         </div>
 
        </section>
 
-  <!-- SECTION 6: Web Design -->
-
-    <section id="projects" class="projects-section">
-
-      <h3>Design Projects</h3>
-      <div class="group">
-        <div class="person-details">
-          <img src="images/ChroniCare.png" alt="ChroniCare Project">
-          <p>ChroniCare: A medical smartwatch software</p>
-          <p> Capstone Project for Technology Entrepreneurship</p>
-        </div>
-
-        <div class="person-details">
-          <img src="images/dng1.png" alt="DNG Project">
-          <p> Diary Ni Gracia Landing Page</p>
-          <p> Internship Project</p>
-        </div>
-
-        <div class="person-details">
-          <img src="images/lavidaverde.png" alt="DNG Project">
-          <p> La Vida Verde</p>
-          <p> Personal Project</p>
-        </div>
-
-       </section>
    
     <!-- SECTION 6: Experience -->
 
@@ -286,15 +298,22 @@ var typed = new Typed(".auto-type",{
 
       <div class="group">
         <div class="text">
-    Phone Number: +63 9239378642 / +63 9190700510
-          <br><br>
-    LinkedIn: www.linkedin.com/in/mjsollestre
-          <br><br>
-    Email: michaeljoshua.sollestre@gmail.com
-          <br><br>
-    Address: 973 Diamond Street, Ilayang Iyam, Lucena City, Quezon Province
-
-    
+          <p>
+            <i class="fa-solid fa-phone"></i>
+            +63 9239378642 / +63 9190700510
+          </p>
+          <p>
+            <i class="fa-brands fa-linkedin"></i>
+            www.linkedin.com/in/mjsollestre
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            michaeljoshua.sollestre@gmail.com
+          </p>
+          <p>
+            <i class="fa-solid fa-location-dot"></i>
+            973 Diamond Street, Ilayang Iyam, Lucena City, Quezon Province
+          </p>
         </div>
 
 
@@ -321,14 +340,58 @@ var typed = new Typed(".auto-type",{
 <footer class="footer">
   <div class="footer-content">
     <p>© 2025 Michael Joshua Sollestre | All Rights Reserved</p>
-    
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/mjsollestre/" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=michaeljoshua.sollestre@gmail.com" target="_blank">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+      <a href="https://github.com/mjsollestre" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+      </a>
     </div>
   </div>
 </footer>
 
   </main>
 
-  
+  <script>
+    // Theme Toggle Functionality
+    const lightThemeBtn = document.getElementById('light-theme');
+    const darkThemeBtn = document.getElementById('dark-theme');
+    const body = document.body;
+
+    // Check for saved theme preference or default to light theme
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    // Apply the saved theme
+    if (currentTheme === 'dark') {
+      body.setAttribute('data-theme', 'dark');
+      lightThemeBtn.style.display = 'none';
+      darkThemeBtn.style.display = 'flex';
+    } else {
+      body.removeAttribute('data-theme');
+      lightThemeBtn.style.display = 'flex';
+      darkThemeBtn.style.display = 'none';
+    }
+
+    // Light theme button click
+    lightThemeBtn.addEventListener('click', () => {
+      body.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      lightThemeBtn.style.display = 'none';
+      darkThemeBtn.style.display = 'flex';
+    });
+
+    // Dark theme button click
+    darkThemeBtn.addEventListener('click', () => {
+      body.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      lightThemeBtn.style.display = 'flex';
+      darkThemeBtn.style.display = 'none';
+    });
+  </script>
 
 </body>
 
