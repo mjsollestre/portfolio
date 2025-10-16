@@ -566,6 +566,10 @@ nav .right a span {
   font-size: 18px;
   color: var(--text-color);
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
 }
 
 .projects-section .group .person-details p:last-child {
