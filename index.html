@@ -376,18 +376,18 @@ var typed = new Typed(".auto-type",{
       darkThemeBtn.style.display = 'none';
     }
 
-    // Light theme button click
+    // Light theme button click (switches to dark mode)
     lightThemeBtn.addEventListener('click', () => {
-      body.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'light');
+      body.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
       lightThemeBtn.style.display = 'none';
       darkThemeBtn.style.display = 'flex';
     });
 
-    // Dark theme button click
+    // Dark theme button click (switches to light mode)
     darkThemeBtn.addEventListener('click', () => {
-      body.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
+      body.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
       lightThemeBtn.style.display = 'flex';
       darkThemeBtn.style.display = 'none';
     });
