@@ -356,6 +356,11 @@ var typed = new Typed(".auto-type",{
 
   </main>
 
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" title="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
   <script>
     // Theme Toggle Functionality
     const lightThemeBtn = document.getElementById('light-theme');
@@ -390,6 +395,26 @@ var typed = new Typed(".auto-type",{
       localStorage.setItem('theme', 'light');
       lightThemeBtn.style.display = 'flex';
       darkThemeBtn.style.display = 'none';
+    });
+
+    // Back to Top Button Functionality
+    const backToTopBtn = document.getElementById('backToTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Smooth scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
   </script>
 
